@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #2a1b2e;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: Nunito, ui-rounded, system-ui, sans-serif;
+  color: #f4ede2;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Bezpieczne marginesy (wycięcia ekranu, paski gestów). */
+.safe-pad {
+  padding-top: max(env(safe-area-inset-top), 12px);
+  padding-right: max(env(safe-area-inset-right), 16px);
+  padding-bottom: max(env(safe-area-inset-bottom), 12px);
+  padding-left: max(env(safe-area-inset-left), 16px);
+}
+
+@layer components {
+  .glass {
+    @apply rounded-3xl border border-white/15 bg-fado-dusk/55 shadow-soft backdrop-blur-md;
+  }
+  .btn {
+    @apply pointer-events-auto rounded-2xl px-6 py-3 font-display text-lg font-bold transition active:scale-95;
+  }
+  .btn-primary {
+    @apply btn bg-fado-scarf text-fado-ink shadow-glow hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none;
+  }
+  .btn-ghost {
+    @apply btn border border-white/20 bg-white/10 text-fado-cream hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+}
